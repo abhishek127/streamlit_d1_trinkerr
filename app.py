@@ -33,8 +33,8 @@ def load_data():
     data = pd.read_csv(DATA_URL)
     data.signup_date = pd.to_datetime(data.signup_date, format='%d/%m/%Y')
     data.ref_date = pd.to_datetime(data.ref_date, format='%d/%m/%Y')
-    df["signup_date"]=df['signup_date'].dt.date
-    df["ref_date"]=df['ref_date'].dt.date
+    data["signup_date"]=data['signup_date'].dt.date
+    data["ref_date"]=data['ref_date'].dt.date
     return data
 
 data = load_data()
