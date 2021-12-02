@@ -6,6 +6,7 @@ from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 DATA_URL = (
     "raw.csv"
@@ -32,6 +33,8 @@ def load_data():
     data = pd.read_csv(DATA_URL)
     data.signup_date = pd.to_datetime(data.signup_date, format='%d/%m/%Y')
     data.ref_date = pd.to_datetime(data.ref_date, format='%d/%m/%Y')
+    df["signup_date"]=df['signup_date'].dt.date
+    df["ref_date"]=df['ref_date'].dt.date
     return data
 
 data = load_data()
